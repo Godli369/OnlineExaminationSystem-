@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在线考试登陆界面</title>
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/loginMy.css"/>
+
+<style>
+html,body{width:100%;}
+</style>
+
+</head>
+<body>
+
+<div class="main">
+<div >
+<div style="height:100px;width: 100% ;  margin:0px ;padding: 0px" >
+<p style="line-height: 100px;text-align: center; color: white; font-family:
+华文彩云; font-size: 40px;">在线考试系统</p>
+</div>
+</div>
+	<div class="center">
+		<form method="post" action="login.php">
+
+<table style="text-align:right">
+<tr style="height:40px;font-size: 14px;" ><th style="text-align:right"> 用 户 名 ：
+</th><td><input type="text" name="name" ></td></tr><tr style="height:40px;font-size: 14px" ><th>密 码： </th><td><input
+type="password" name="password"></td></tr>
+<tr style="height:40px;font-size: 14px" ><th>验证码： </th><td><input
+type="text" name="captcha"></td></tr>
+<tr style="height:40px;font-size: 14px" ><th></th><td><img
+src="./captcha.php" id="captcha" alt="验证码" title="点击刷新验证码"></td></tr>
+<tr style="height:40px;font-size: 14px" ><th></th><td><input
+type="submit" value="登录"></td></tr>
+</table>
+</form>
+	</div>
+	
+</div>
+
+
+<script type="text/javascript" src="js/loginMy.js"></script>
+<script>
+//验证码点击刷新
+(function(){
+var $img = $("#captcha");
+var src = $img.attr("src")+"?_=";
+$img.click(function(){
+$img.attr("src",src+Math.random()); //添加随机数防止浏览器缓存图片
+});
+})();
+</script>
+</body>
+</html>
